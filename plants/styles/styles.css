@@ -100,6 +100,18 @@ a.button{
 
 .button:active{
     background: var(--color-orange);
+
+}
+
+.service-button:active{
+    color: #FFFFFF;
+}
+
+.welcome-button:active{
+    color: #FFFFFF;
+}
+.contact-us-button:active{
+    color: #FFFFFF;
 }
 
 .button:disabled{
@@ -173,6 +185,7 @@ a.button{
 
 .welcome{
     background-color: #EDF2EC;
+    padding-top: 134px;
 }
 
 .right-side{
@@ -215,7 +228,6 @@ a.button{
 }
 
 .welcome-text-full{
-    padding-top: 232px;
     font-size: 45px;
     font-weight: 700;
     line-height: 50px;
