@@ -114,6 +114,14 @@ a.button{
     color: #FFFFFF;
 }
 
+.prices-button:active{
+    background-color: #D6E7D2;
+}
+
+.contacts-button-city:active{
+    background-color: #C1E698;
+}
+
 .button:disabled{
     background: transparent;
 }
