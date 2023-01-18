@@ -219,10 +219,9 @@ a.button{
 
 .welcome-picture {
     margin-top: 62px;
-}
-
-.welcome .right-side{
-    /*margin-left: 109px;*/
+    margin-bottom: 62px;
+    width: 449px;
+    height: 407px;
 }
 
 .welcome-text{
@@ -255,7 +254,6 @@ a.button{
 .welcome-button{
     align-self: flex-start;
     margin-top: 48px;
-    margin-bottom: 94px;
 }
 
 .about {
@@ -293,7 +291,13 @@ a.button{
     font-size: 20px;
     font-weight: 400;
     line-height: 35px;
+    width: 605px;
     color: #636060;
+}
+
+.about-picture{
+    width: 464px;
+    height: 479px;
 }
 
 .services{
@@ -314,7 +318,7 @@ a.button{
     justify-content: space-between;
     width: 82.5%;
     text-align: left;
-    padding-top: 40px;
+    margin-top: 40px;
 }
 
 .service-project-title {
@@ -330,6 +334,15 @@ a.button{
 .service-button{
     color: #E06733;
     text-transform: none;
+    height: 50px;
+}
+
+.service-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 559px;
 }
 
 .service-slider{
@@ -338,8 +351,8 @@ a.button{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    row-gap: 20px;
-    column-gap: 20px;
+    row-gap: 55px;
+    /*column-gap: 116px;*/
     justify-content: space-between;
 }
 
@@ -350,7 +363,7 @@ a.button{
     align-items: center;
     position: relative;
     margin-top: 90px;
-    padding-bottom: 66px;
+    margin-bottom: 121px;
 }
 
 .slider-overflow{
@@ -370,7 +383,6 @@ a.button{
     position: relative;
     width: 27%;
     overflow: hidden;
-    margin-bottom: 55px;
     border: 1px solid #E3E1D5;
     border-radius: 22px;
 }
@@ -387,8 +399,6 @@ a.button{
 }
 
 .service-title {
-    flex-direction: row;
-    align-self: center;
     position: relative;
     text-align: center;
 }
@@ -489,6 +499,11 @@ a.button{
 .contact-us-button{
     text-transform: none;
     color: #E06733;
+}
+
+.contact-us-picture{
+    width: 152px;
+    height: 175px;
 }
 
 .contacts {
@@ -638,7 +653,81 @@ a.button{
 /*.social-media .link:hover .pinterest {*/
 /*    background: no-repeat url(../assets/icons/pinterest 1.svg);*/
 /*}*/
-/*----------------------<1242px--------------------*/
-@media (max-width: 1242px){
-
+/*----------------------<1086px--------------------*/
+@media (max-width: 1086px){
+    .container{
+        max-width: 668px;
+    }
+    .header-container {
+        height: 117px;
+    }
+    .welcome-container {
+        flex-direction: row-reverse;
+    }
+    .welcome-picture {
+        margin-top: 0;
+        width: 280px;
+        height: 254px;
+    }
+    .welcome-text {
+        width: 346px;
+    }
+    .welcome-text-full {
+        font-size: 35px;
+    }
+    .welcome-text-lorem {
+        padding-top: 30px;
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .welcome-button {
+        margin-top: 30px;
+        margin-bottom: 70px;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    .about-title {
+        width: 423px;
+        align-self: center;
+        text-align: center;
+        margin-top: 40px;
+        font-size: 35px;
+    }
+    .about-text {
+        padding-top: 40px;
+        line-height: 30px;
+        width: 100%;
+    }
+    .about-picture {
+        width: 250px;
+        height: 258px;
+    }
+    .about .right-side {
+        margin-top: 40px;
+        margin-bottom: 90px;
+    }
+    .service-projects {
+        flex-direction: column;
+        margin-top: 60px;
+        height: 184px;
+    }
+    .service-project-title {
+        font-size: 35px;
+    }
+    .slider{
+        margin-top: 40px;
+        margin-bottom: 70px;
+    }
+    .service-slider{
+        row-gap: 38px;
+        column-gap: 106px;
+    }
+    .service {
+        position: relative;
+        width: 42%;
+    }
+    .service-information {
+        padding-bottom: 20px;
+    }
 }
