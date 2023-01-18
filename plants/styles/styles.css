@@ -33,7 +33,6 @@ body{
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 125%;
-    /*color: var(--color-black-blue);*/
     scroll-behavior: smooth;
     --color-green:#499A18;
     --color-orange:#E06733;
@@ -45,6 +44,7 @@ body{
 
 .main-container{
     position: relative;
+    /*overflow-x: hidden*/
 }
 
 h1 {
@@ -72,7 +72,7 @@ h4{
 }
 
 .container{
-    max-width: 1440px;
+    max-width: 1220px;
     margin: 0 auto;
 }
 
@@ -98,33 +98,33 @@ a.button{
     cursor: pointer;
 }
 
-.button:active{
+.button:active, .button:hover{
     background: var(--color-orange);
-
 }
 
-.service-button:active{
+.service-button:active, .service-button:hover{
     color: #FFFFFF;
 }
 
-.welcome-button:active{
+.welcome-button:active, .welcome-button:hover{
     color: #FFFFFF;
 }
-.contact-us-button:active{
+.contact-us-button:active, .contact-us-button:hover{
     color: #FFFFFF;
 }
 
-.prices-button:active{
+.prices-button:active, .prices-button:hover{
     background-color: #D6E7D2;
 }
 
-.contacts-button-city:active{
+.contacts-button-city:active, .contacts-button-city:hover{
     background-color: #C1E698;
 }
 
 .button:disabled{
     background: transparent;
 }
+
 .header{
     position: absolute;
     width: 100%;
@@ -156,13 +156,13 @@ a.button{
 
 .logo{
     width: 79px;
-    margin-right: 689px;
     text-align: center;
 }
 
 .logo-link{
     color: #010201;
     text-decoration: none;
+    margin-right: auto;
 }
 
 .logo-text{
@@ -214,7 +214,7 @@ a.button{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .welcome-picture {
@@ -222,7 +222,7 @@ a.button{
 }
 
 .welcome .right-side{
-    margin-left: 109px;
+    /*margin-left: 109px;*/
 }
 
 .welcome-text{
@@ -266,16 +266,13 @@ a.button{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .about .right-side{
-    margin-right: 109px;
+
     margin-top: 93px;
     margin-bottom: 93px;
-}
-.about .left-side{
-    margin-left: 109px;
 }
 
 .about-title {
@@ -315,11 +312,9 @@ a.button{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 1007px;
+    width: 82.5%;
     text-align: left;
     padding-top: 40px;
-    margin-left: 109px;
-    margin-right: 109px;
 }
 
 .service-project-title {
@@ -351,13 +346,11 @@ a.button{
 .slider{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     margin-top: 90px;
     padding-bottom: 66px;
-    margin-left: 109px;
-    margin-right: 109px;
 }
 
 .slider-overflow{
@@ -369,13 +362,13 @@ a.button{
     width: 100%;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-around;
     gap: 5%;
 }
 
 .service{
     position: relative;
-    width: 31.3%;
+    width: 27%;
     overflow: hidden;
     margin-bottom: 55px;
     border: 1px solid #E3E1D5;
@@ -430,14 +423,12 @@ a.button{
 }
 
 .prices .left-side{
-    margin-left: 109px;
     margin-top: 40px;
     margin-bottom: 115px;
 
 }
 
 .prices .right-side{
-    margin-right: 109px;
     margin-top: 40px;
     margin-bottom: 115px;
 }
@@ -477,6 +468,7 @@ a.button{
     background-color: #EDF2EC;
     height: 50px;
     width: 250px;
+    font-size: 20px;
     font-weight: 700;
     background-image: url("../assets/icons/accordion_btn.svg");
     background-position: 90% 50%;
@@ -511,7 +503,6 @@ a.button{
 }
 
 .contacts .left-side{
-    margin-left: 109px;
     margin-top: 53px;
 }
 
@@ -521,7 +512,6 @@ a.button{
 }
 
 .contacts .right-side{
-    margin-right: 109px;
     margin-top: 148px;
     margin-bottom: 352px;
 }
@@ -530,6 +520,10 @@ a.button{
     color: var(--color-green);
 }
 
+.contacts-picture {
+    width: 27vw;
+    height: 497px;
+}
 .contacts-button{
     text-align: left;
     display: flex;
@@ -553,6 +547,11 @@ a.button{
     padding-left: 15px;
 }
 
+.contact-us-button{
+    font-size: 20px;
+    font-weight: 700;
+}
+
 .footer{
     position: absolute;
     width: 100%;
@@ -570,7 +569,6 @@ a.button{
 .footer .left-side {
     font-size: 20px;
     font-weight: 400;
-    margin-left: 109px;
 }
 
 .footer .center-side{
@@ -581,7 +579,6 @@ a.button{
 .footer .right-side{
     height: 50px;
     width: 188px;
-    margin-right: 109px;
 }
 
 /*.social-media{*/
@@ -641,3 +638,7 @@ a.button{
 /*.social-media .link:hover .pinterest {*/
 /*    background: no-repeat url(../assets/icons/pinterest 1.svg);*/
 /*}*/
+/*----------------------<1242px--------------------*/
+@media (max-width: 1242px){
+
+}
