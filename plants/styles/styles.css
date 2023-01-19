@@ -539,6 +539,11 @@ a.button{
     width: 27vw;
     height: 497px;
 }
+
+.down-side{
+    display: none;
+}
+
 .contacts-button{
     text-align: left;
     display: flex;
@@ -729,5 +734,48 @@ a.button{
     }
     .service-information {
         padding-bottom: 20px;
+    }
+    .pay-title{
+        font-size: 35px;
+    }
+    .prices-title{
+        font-size: 25px;
+        width: 296px;
+    }
+    .prices .right-side {
+        margin-top: 139px;
+        margin-bottom: 88px;
+    }
+    .prices-container .right-side {
+        justify-content: space-evenly;
+        height: 358px;
+    }
+    .contacts-picture{
+        display: none;
+    }
+    .down-side{
+        display: block;
+        width: 200px;
+        height: 248px;
+    }
+    .contacts-container {
+        flex-direction: column;
+    }
+    .contacts .center-side {
+        margin-top: 40px;
+        margin-bottom: 100px;
+    }
+    .contacts .right-side {
+        margin-top: 0px;
+        margin-bottom: 250px;
+    }
+    .contacts .left-side {
+        margin-top: 0px;
+    }
+    .footer-container {
+        flex-direction: column;
+        height: 181px;
+        padding-top: 33px;
+        padding-bottom: 18px;
     }
 }
