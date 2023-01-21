@@ -881,7 +881,11 @@ a.button{
         width: 187px;
     }
     .service-buttons{
+        flex-wrap: wrap;
         width: 252px;
+        height: 79px;
+        margin-left: 25px;
+        font-size: 15px;
     }
     .service-button{
         height: 35px;
