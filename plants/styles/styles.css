@@ -517,6 +517,8 @@ a.button{
 .contact-us-button{
     text-transform: none;
     color: #E06733;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .contact-us-picture{
@@ -583,11 +585,7 @@ a.button{
     font-weight: 400;
     text-align: left;
     padding-left: 15px;
-}
-
-.contact-us-button{
-    font-size: 20px;
-    font-weight: 700;
+    box-shadow: 0px 3px 6px grey;
 }
 
 .footer{
@@ -883,7 +881,11 @@ a.button{
         width: 187px;
     }
     .service-buttons{
+        flex-wrap: wrap;
         width: 252px;
+        height: 79px;
+        margin-left: 25px;
+        font-size: 15px;
     }
     .service-button{
         height: 35px;
@@ -899,50 +901,79 @@ a.button{
     .service {
         width: 85%;
     }
-    /*.service-information {*/
-    /*    padding-bottom: 20px;*/
-    /*}*/
-    /*.pay-title{*/
-    /*    font-size: 35px;*/
-    /*}*/
-    /*.prices-title{*/
-    /*    font-size: 25px;*/
-    /*    width: 296px;*/
-    /*}*/
-    /*.prices .right-side {*/
-    /*    margin-top: 139px;*/
-    /*    margin-bottom: 88px;*/
-    /*}*/
-    /*.prices-container .right-side {*/
-    /*    justify-content: space-evenly;*/
-    /*    height: 358px;*/
-    /*}*/
-    /*.contacts-picture{*/
-    /*    display: none;*/
-    /*}*/
-    /*.down-side{*/
-    /*    display: block;*/
-    /*    width: 200px;*/
-    /*    height: 248px;*/
-    /*}*/
-    /*.contacts-container {*/
-    /*    flex-direction: column;*/
-    /*}*/
-    /*.contacts .center-side {*/
-    /*    margin-top: 40px;*/
-    /*    margin-bottom: 100px;*/
-    /*}*/
-    /*.contacts .right-side {*/
-    /*    margin-top: 0px;*/
-    /*    margin-bottom: 250px;*/
-    /*}*/
-    /*.contacts .left-side {*/
-    /*    margin-top: 0px;*/
-    /*}*/
-    /*.footer-container {*/
-    /*    flex-direction: column;*/
-    /*    height: 181px;*/
-    /*    padding-top: 33px;*/
-    /*    padding-bottom: 18px;*/
-    /*}*/
+    .prices-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .prices-container .left-side{
+        align-items: center;
+        height: auto;
+    }
+    .prices .left-side {
+        margin-top: 25px;
+        margin-bottom: 0;
+    }
+    .pay-title {
+        font-size: 25px;
+        margin-bottom: 40px;
+    }
+    .buttons-prices{
+        height: 235px;
+        width: 224px;
+    }
+    .prices-button{
+        padding-top: 14px;
+        height: 50px;
+        width: 180px;
+        font-size: 15px;
+        border-radius: 25px;
+    }
+    .prices .right-side {
+        margin-top: 19px;
+        margin-bottom: 40px;
+    }
+    .contact-us-picture{
+        display: none;
+    }
+    .prices-container .right-side {
+        justify-content: space-between;
+        height: 126px;
+        align-items: center;
+    }
+    .prices-title {
+        font-size: 20px;
+        width: 230px;
+        text-align: center;
+        line-height: 35px;
+    }
+    .contact-us-button{
+        font-size: 15px;
+        width: 121px;
+        height: 35px;
+    }
+    .contacts .center-side {
+        margin-top: 25px;
+        margin-bottom: 80px;
+    }
+    .contacts-title{
+        font-size: 25px;
+        line-height: 33px;
+    }
+    .contacts .right-side {
+        margin-bottom: 132px;
+    }
+    .contacts-button-city{
+        width: 300px;
+        padding-top: 13px;
+    }
+    .down-side{
+        width: 100px;
+        height: 124px;
+    }
+    .footer-container {
+        height: 146px;
+        padding-top: 22px;
+        padding-bottom: 7px;
+        font-size: 20px;
+    }
 }
