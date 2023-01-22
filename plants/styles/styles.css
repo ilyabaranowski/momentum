@@ -813,8 +813,11 @@ a.button{
     .dark{
         display: block;
     }
+    .logo-link{
+        width: 10%;
+    }
     .toggle-nav{
-        width: 40px;
+        width: 10%;
         height: 24px;
         display: block;
         background: url("../assets/icons/burger.svg") no-repeat center center / 91% auto;
@@ -827,7 +830,7 @@ a.button{
         flex-direction: column;
         justify-content: flex-start;
         background-color: #fff;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         transform: translateX(100%);
@@ -841,9 +844,6 @@ a.button{
         flex-direction: column;
         justify-content: flex-start;
         gap: 15px;
-    }
-    .mobile-nav .link{
-        color: var(--color-black-blue);
     }
     .mobile-nav .logo{
         width: 82px;
@@ -867,7 +867,7 @@ a.button{
         padding-top: 120px;
     }
     .welcome-text {
-        width: 330px;
+        width: 100%;
     }
     .welcome-picture {
         display: none;
@@ -890,8 +890,11 @@ a.button{
     .button {
         padding-top: 5px;
     }
+    .about-container .left-side{
+        width: 100%;
+    }
     .about-title {
-        width: 288px;
+        width: 100%;
         margin-top: 20px;
         font-size: 25px;
     }
@@ -909,7 +912,7 @@ a.button{
         margin-bottom: 31px;
     }
     .service-container{
-        max-width: 100%;
+        max-width: 330px;
     }
     .service-overall{
         width: 330px;
@@ -917,17 +920,16 @@ a.button{
     .service-projects {
         margin-top: 30px;
         height: 183px;
-        width: 66%;
+        align-items: baseline;
     }
     .service-project-title {
         font-size: 25px;
-        width: 187px;
+        width: 100%;
     }
     .service-buttons{
         flex-wrap: wrap;
         width: 252px;
         height: 79px;
-        margin-left: 25px;
         font-size: 15px;
     }
     .service-button{
@@ -1006,7 +1008,7 @@ a.button{
         margin-bottom: 132px;
     }
     .contacts-button-city{
-        width: 300px;
+        width: 570%;
         padding-top: 13px;
     }
     .down-side{
