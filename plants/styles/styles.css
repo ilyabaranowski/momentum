@@ -845,9 +845,6 @@ a.button{
         justify-content: flex-start;
         gap: 15px;
     }
-    .mobile-nav .link{
-        color: var(--color-black-blue);
-    }
     .mobile-nav .logo{
         width: 82px;
         margin-right: 63px;
