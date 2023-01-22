@@ -858,6 +858,11 @@ a.button{
         justify-content: space-between;
         align-items: flex-start;
     }
+    .close-icon{
+        background: url(../assets/icons/x_icon.svg) no-repeat 50% 50%;
+        width: 14px;
+        height: 14px;
+    }
     .welcome {
         padding-top: 120px;
     }
