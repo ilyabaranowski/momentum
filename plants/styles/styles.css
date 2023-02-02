@@ -405,6 +405,18 @@ a.button{
     border-radius: 22px;
 }
 
+.service-blur{
+    filter: blur(2px);
+}
+
+.service-unblur{
+    filter: blur(0);
+}
+
+.service-button-active {
+    background: #E06733;
+    color: #ffffff;
+}
 .service-picture-block{
     overflow: hidden;
     margin-bottom: 5px;
