@@ -87,15 +87,15 @@
                     <div class="service-projects">
                         <h2 class="service-project-title">Service and our projects</h2>
                         <div class="service-buttons">
-                            <a class="button service-button">Gardens</a>
-                            <a class="button service-button">Lawn</a>
-                            <a class="button service-button">Planting</a>
+                            <a class="button service-button" id="gardens">Gardens</a>
+                            <a class="button service-button" id="lawn">Lawn</a>
+                            <a class="button service-button" id="planting">Planting</a>
                         </div>
                     </div>
                     <div class="slider">
                             <div class="slider-container">
                                 <div class="service-slider current-slide">
-                                    <div class="service">
+                                    <div class="service slider-garden">
                                         <div class="service-picture-block">
                                             <img src="./assets/images/first.png" alt="garden-care" class="care-picture">
                                         </div>
@@ -106,7 +106,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="service">
+                                    <div class="service slider-planting">
                                         <div class="service-picture-block">
                                             <img src="./assets/images/first%20(1).png" alt="planting" class="care-picture">
                                         </div>
@@ -117,7 +117,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="service">
+                                    <div class="service slider-lawn">
                                         <div class="service-picture-block">
                                             <img src="./assets/images/first%20(2).png" alt="Lawn-care" class="care-picture">
                                         </div>
@@ -128,7 +128,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="service">
+                                    <div class="service slider-planting">
                                         <div class="service-picture-block">
                                             <img src="./assets/images/first%20(3).png" alt="Planting" class="care-picture">
                                         </div>
@@ -139,7 +139,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="service">
+                                    <div class="service slider-garden">
                                         <div class="service-picture-block">
                                             <img src="./assets/images/first%20(4).png" alt="Garden care" class="care-picture">
                                         </div>
@@ -150,7 +150,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="service">
+                                    <div class="service slider-planting">
                                         <div class="service-picture-block">
                                             <img src="./assets/images/first%20(5).png" alt="Planting" class="care-picture">
                                         </div>
@@ -171,11 +171,59 @@
             <div class="container prices-container">
                 <div class="left-side">
                     <h3 class="pay-title">Prices</h3>
-                    <div class="buttons-prices">
-                        <a href="" class="button prices-button">Basics</a>
-                        <a href="" class="button prices-button">Standard</a>
-                        <a href="" class="button prices-button">Pro care</a>
-                    </div>
+<!--                    <div class="buttons-prices">-->
+<!--                        <div class="button prices-button">Basics</div>-->
+<!--                        <div class="button prices-button">Standard</div>-->
+<!--                        <div class="button prices-button">Pro care</div>-->
+<!--                    </div>-->
+
+                    <ul class="prices__block accordion-list">
+                        <li class="accordion">
+                            <div class="prices__block-item">
+                                <div class="prices__block-text">Basics</div>
+                                <button class="prices__block-arrow accordion__control">
+                                </button>
+                            </div>
+                            <div class="accordion__content">
+                                <span class="accordion__line"></span>
+                                <p class="accordion__content_text">
+                                    Release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                </p>
+                                <div class="accordion__content_price"><span>$15</span> / per hour</div>
+                                <a href="#contacts" class="accordion__button">Order</a>
+                            </div>
+                        </li>
+                        <li class="accordion">
+                            <div class="prices__block-item">
+                                <div class="prices__block-text">Standard</div>
+                                <button class="prices__block-arrow accordion__control">
+                                </button>
+                            </div>
+                            <div class="accordion__content">
+                                <span class="accordion__line"></span>
+                                <p class="accordion__content_text">
+                                    Release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                </p>
+                                <div class="accordion__content_price"><span>$25</span> / per hour</div>
+                                <a href="#contacts" class="accordion__button">Order</a>
+                            </div>
+                        </li>
+                        <li class="accordion">
+                            <div class="prices__block-item">
+                                <div class="prices__block-text">Pro care</div>
+                                <button class="prices__block-arrow accordion__control">
+                                </button>
+                            </div>
+                            <div class="accordion__content">
+                                <span class="accordion__line"></span>
+                                <p class="accordion__content_text">
+                                    Release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                </p>
+                                <div class="accordion__content_price"><span>$35</span> / per hour</div>
+                                <a href="#contacts" class="accordion__button">Order</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="right-side">
                     <h3 class="prices-title">Our best <span class="green-text">gardeners</span> are ready to help you</h3>
@@ -246,5 +294,7 @@
     </footer>
 </div>
 <script src="assets/js/menu.js"></script>
+<script src="assets/js/services.js"></script>
+<script src="assets/js/accordion.js"></script>
 </body>
 </html>
