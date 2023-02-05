@@ -1,5 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
-    const servicesFunc = function () {
+ const servicesFunc = function () {
         const servButton = document.querySelectorAll('.service-button');
         const serviceCard = document.querySelectorAll('.service');
         const gardens = document.querySelector('#gardens');
@@ -13,28 +12,28 @@ window.addEventListener("DOMContentLoaded", () => {
 
         servButton.forEach((item) => {
             item.addEventListener('click', () => {
-                serviceCard.forEach(((e) => {
-                    e.classList.add('service-blur');
+                serviceCard.forEach(((elem) => {
+                    elem.classList.add('service-blur');
                 }));
             });
         });
 
-        function clickCard(button, card) {
-            button.addEventListener('click', () => {
-                if (!button.classList.contains('service-active')) {
+        function clickCard(a, slider) {
+            a.addEventListener('click', () => {
+                if (!a.classList.contains('service-active')) {
                     count += 1;
-                    button.classList.add('service-active');
-                    card.forEach((i) => {
+                    a.classList.add('service-active');
+                    slider.forEach((i) => {
                         i.classList.add('service-unblur');
                     });
-                    // removeClass();
+                    removeClass();
                 } else {
                     count -= 1;
-                    button.classList.remove('service-active');
-                    card.forEach((i) => {
+                    a.classList.remove('service-active');
+                    slider.forEach((i) => {
                         i.classList.remove('service-unblur');
                     });
-                    // removeClass();
+                    removeClass();
                 }
             });
         }
@@ -49,7 +48,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 servButton.forEach((item) => {
                     item.classList.remove('service-active')
                 });
-                serviceCard.forEach((item) => {
+                serviceCard.forEach((elem) => {
                     elem.classList.remove('service-unblur');
                     elem.classList.remove('service-blur');
                 });
@@ -58,4 +57,3 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     servicesFunc();
-})
