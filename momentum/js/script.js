@@ -8,6 +8,7 @@ const date = new Date();
 
 ///////////////////Time & date
 function showTime() {
+    const date = new Date();
     const currentTime = date.toLocaleTimeString('en-US', {hour12: false});
     time.textContent = currentTime;
 
