@@ -1,14 +1,14 @@
 const time = document.querySelector('.time');
 const dateInfo = document.querySelector('.date');
-const greetingContainer = document.querySelector('.greeting-container');
+// const greetingContainer = document.querySelector('.greeting-container');
 const greeting = document.querySelector('.greeting');
 const greetingText = document.querySelector('.name');
 const date = new Date();
 const body = document.querySelector('body');
-const timeOfDay = getTimeOfDay();
+// const timeOfDay = getTimeOfDay();
 const slideNext = document.querySelector('.slide-next');
 const slidePrev = document.querySelector('.slide-prev');
-const hours = date. getHours();
+// const hours = date. getHours();
 
 ///Time & date
 function showTime() {
@@ -90,3 +90,63 @@ function getSlidePrev() {
 
 slideNext.addEventListener('click', getSlideNext);
 slidePrev.addEventListener('click', getSlidePrev);
+
+///Weather
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
+const weather = document.querySelector('.weather');
+const city = document.querySelector('.city');
+const wind = document.querySelector('.wind');
+const humidity = document.querySelector('.humidity');
+const weatherErr = document.querySelector('.weather-error');
+let lang = 'en';
+
+
+async function getWeather() {
+    try {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=f5d1d74c3abc367654445530b2812b8b&units=metric`;
+        const res = await fetch(url);
+        const data = await res.json();
+        weatherIcon.className = 'weather-icon owf';
+        weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+        temperature.textContent = `${data.main.temp}°C`;
+        weatherDescription.textContent = data.weather[0].description;
+        humidity.textContent = `Humidity: ${data.main.humidity} %`;
+        wind.textContent = `Wind speed: ${data.wind.speed} m/s`;
+    } catch (err) {
+        weatherErr.textContent = `Error ${city.value} is not found`;
+    }
+}
+
+function setWeather(e) {
+    if(e.type === 'keypress') {
+        if(e.which == 13 || e.keyCode == 13) {
+            localStorage.setItem('city', e.target.innerText);
+            city.blur();
+        }
+    } else {
+        localStorage.setItem('city', e.target.innerText);
+    }
+}
+
+city.addEventListener('keypress', setWeather);
+city.addEventListener('blur', setWeather);
+
+city.addEventListener('change', () => {
+    getWeather();
+    location.reload();
+});
+
+function setLocalStorageWeather() {
+    localStorage.setItem('city', city.value);
+}
+window.addEventListener('beforeunload', setLocalStorageWeather);
+
+function getLocalStorageWeather() {
+    if (localStorage.getItem('city')) {
+        city.value =localStorage.getItem('city');
+    }
+    getWeather();
+}
+window.addEventListener('load', getLocalStorageWeather);
