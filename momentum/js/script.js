@@ -1,14 +1,14 @@
 const time = document.querySelector('.time');
 const dateInfo = document.querySelector('.date');
-// const greetingContainer = document.querySelector('.greeting-container');
+const greetingContainer = document.querySelector('.greeting-container');
 const greeting = document.querySelector('.greeting');
 const greetingText = document.querySelector('.name');
 const date = new Date();
 const body = document.querySelector('body');
-// const timeOfDay = getTimeOfDay();
+const timeOfDay = getTimeOfDay();
 const slideNext = document.querySelector('.slide-next');
 const slidePrev = document.querySelector('.slide-prev');
-// const hours = date. getHours();
+const hours = date. getHours();
 
 ///Time & date
 function showTime() {
@@ -150,3 +150,6 @@ function getLocalStorageWeather() {
     getWeather();
 }
 window.addEventListener('load', getLocalStorageWeather);
+
+///Quotes
+
