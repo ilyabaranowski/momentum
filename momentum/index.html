@@ -12,9 +12,18 @@
   <header class="header">
     <div class="player">
       <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
+        <div class="song-title"></div>
+        <div class="player-settings">
+          <progress type="range" id="progress-bar" min = "0" max="" value="0" class="progress-bar audio-bar"></progress>
+          <div class="currentTime"></div>
+          <div class="durationTime"></div>
+        </div>
+        <div class="player-buttons">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
+          <input type="range" id="volumeRange" min="0" max="1" step="0.01" class="range">
+        </div>
       </div>
       <ul class="play-list"></ul>
     </div>
@@ -53,6 +62,7 @@
       <div class="author"></div>
     </div>
   </footer>
-  <script src="./script.js"></script>
+  <script type="module" src="./playList.js"></script>
+  <script type="module" src="./script.js"></script>
 </body>
 </html>

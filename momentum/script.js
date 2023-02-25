@@ -36,9 +36,9 @@ function getTimeOfDay(){
     const hours = date.getHours();
     let text;
     if (hours >= 6 && hours < 12) text = 'morning';
-    if (hours >= 12 && hours < 18) text = 'afternoon';
-    if (hours >= 18 && hours < 24) text = 'evening';
-    if (hours >= 00 && hours < 6) text = 'night';
+    else if (hours >= 12 && hours < 18) text = 'afternoon';
+    else if (hours >= 18 && hours < 24) text = 'evening';
+    else text = 'night';
     return text;
 }
 
@@ -173,3 +173,5 @@ changeQuote.onclick = () => {
 function getRandomQuote (num) {
     return Math.ceil(Math.random() * num);
 };
+
+///AudioPlayer
