@@ -152,4 +152,24 @@ function getLocalStorageWeather() {
 window.addEventListener('load', getLocalStorageWeather);
 
 ///Quotes
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const changeQuote = document.querySelector('.change-quote');
 
+async function getQuotes() {
+    const quotes = `./quotes/quotes-${lang}.json`;
+    const res = await fetch(quotes);
+    const data =await res.json();
+    let randomQuote = getRandomQuote(data.length);
+    quote.textContent = data[randomQuote].text;
+    author.textContent = data[randomQuote].author;
+}
+getQuotes();
+
+changeQuote.onclick = () => {
+    getQuotes()
+};
+
+function getRandomQuote (num) {
+    return Math.ceil(Math.random() * num);
+};
