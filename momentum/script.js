@@ -175,3 +175,31 @@ function getRandomQuote (num) {
 };
 
 ///AudioPlayer
+const player = document.querySelector('.player');
+const play = document.querySelector('.play');
+const playPrev = document.querySelector('.play-prev');
+const playNext = document.querySelector('.play-next');
+const playListAudio = document.querySelector('.play-list');
+const songTitle = document.querySelector('.song-title');
+
+import playList from "./playList";
+
+const audio = document.createElement('audio');
+let isPlay = false;
+let playNum = 0;
+
+audio.src = playList[playNum].src;
+showSongTitle();
+
+playList.forEach(el => {
+    const li = document.createElement('li');
+    li.classList.add('play-item');
+    li.textContent = el.title;
+    playListAudio.appendChild(li);
+});
+
+function showSongTitle() {
+    songTitle.innerHTML = playList[playNum].title;
+}
+
+const itemList = Array.from(document.querySelectorAll('.play-item'))
