@@ -403,3 +403,83 @@ settingsMenu.addEventListener('click', e => {
         localStorage.setItem(e.target.name, document.getElementById(`${e.target.name}`).checked);
     }
 });
+
+///ToDo-list
+
+const openTodo = document.querySelector('.open-list');
+const todoMenu = document.querySelector('.todo-menu');
+
+openTodo.onclick = () =>{
+    todoMenu.classList.toggle('show');
+}
+
+const list = document.querySelector('.todo-list');
+let items = list.children;
+const newItemForm = document.querySelector('.add-form');
+const taskTemplate = document.querySelector('#task-template').content;
+const newItemTemplate = taskTemplate.querySelector('.todo-list-item');
+const newItemTitle = newItemForm.querySelector('.add-form-input');
+const emptyList = document.querySelector('.empty-list');
+const emptyButton = document.querySelector('.empty-list-button');
+
+emptyButton.onclick = ()=>{
+    emptyList.classList.toggle('hidden');
+    newItemForm.classList.toggle('show');
+    newItemTitle.focus();
+}
+
+newItemTitle.placeholder = ['newTodo'];
+emptyList.querySelector('span').textContent = ['noTodo'];
+emptyButton.textContent = ['newTodo'];
+
+let itemSotrage = [];
+if(localStorage.getItem('todo')){
+    itemSotrage = JSON.parse(localStorage.getItem('todo'));
+    itemSotrage.forEach(e => tasksOut(e));
+    toggleEmptyListMessage();
+}
+
+//tasks out
+
+function tasksOut(value){
+    const taskText = value;
+    const task = newItemTemplate.cloneNode(true);
+    const taskDescription = task.querySelector('span');
+    taskDescription.textContent = taskText;
+    addCheckHandler(task);
+
+    list.appendChild(task);
+    list.classList.add('min-height');
+    task.scrollIntoView();
+}
+
+function addCheckHandler (item) {
+    const checkbox = item.querySelector('.todo-list-input');
+    checkbox.addEventListener('change', function () {
+        itemSotrage.splice(itemSotrage.indexOf(item.textContent.trim()), 1);
+        localStorage.setItem('todo', JSON.stringify(itemSotrage));
+        item.remove();
+        toggleEmptyListMessage();
+    });
+};
+
+function toggleEmptyListMessage () {
+    if (items.length === 0) {
+        list.classList.remove('min-height');
+        emptyList.classList.remove('hidden');
+        newItemForm.classList.remove('show');
+    }else{
+        list.classList.add('min-height');
+        emptyList.classList.add('hidden');
+        newItemForm.classList.add('show');
+    }
+};
+
+newItemForm.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    itemSotrage.push(newItemTitle.value.trim());
+    tasksOut(newItemTitle.value);
+    newItemTitle.value = '';
+
+    localStorage.setItem('todo', JSON.stringify(itemSotrage));
+});
