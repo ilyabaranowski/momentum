@@ -22,8 +22,6 @@ const translation = {
         error: 'Error! City not found for',
         player: 'audio-player',
         tag: 'tag',
-        newTodo: 'New ToDo',
-        noTodo: 'No todos yet',
     },
     ru: {
         night: 'Доброй ночи',
@@ -48,8 +46,6 @@ const translation = {
         error: 'Ошибка! Город не найден для',
         player: 'аудиоплеер',
         tag: 'тема',
-        newTodo: 'Новая задача',
-        noTodo: 'Задач пока нет',
     }
 };
 

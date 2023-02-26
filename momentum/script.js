@@ -1,16 +1,11 @@
-const time = document.querySelector('.time');
-const dateInfo = document.querySelector('.date');
-const greetingContainer = document.querySelector('.greeting-container');
-const greeting = document.querySelector('.greeting');
-const greetingText = document.querySelector('.name');
-const date = new Date();
-const body = document.querySelector('body');
-const timeOfDay = getTimeOfDay();
-const slideNext = document.querySelector('.slide-next');
-const slidePrev = document.querySelector('.slide-prev');
-const hours = date. getHours();
+
 
 ///Time & date
+const time = document.querySelector('.time');
+const dateInfo = document.querySelector('.date');
+const greeting = document.querySelector('.greeting');
+const date = new Date();
+
 function showTime() {
     const date = new Date();
     const currentTime = date.toLocaleTimeString('en-US', {hour12: false});
@@ -32,6 +27,8 @@ function showTime() {
 showTime();
 
 ///Greeting
+const greetingText = document.querySelector('.name');
+
 function getTimeOfDay(){
     const hours = date.getHours();
     let text;
@@ -60,6 +57,9 @@ function getLocalStorage() {
 window.addEventListener('load', getLocalStorage)
 
 ///Slider & background
+const body = document.querySelector('body');
+const slideNext = document.querySelector('.slide-next');
+const slidePrev = document.querySelector('.slide-prev');
 let randomNum = getRandomNum(1, 20);
 
 function getRandomNum(min, max) {
@@ -95,7 +95,6 @@ slidePrev.addEventListener('click', getSlidePrev);
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
-// const weather = document.querySelector('.weather');
 const city = document.querySelector('.city');
 const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
@@ -108,6 +107,7 @@ async function getWeather() {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=f5d1d74c3abc367654445530b2812b8b&units=metric`;
         const res = await fetch(url);
         const data = await res.json();
+
         weatherIcon.className = 'weather-icon owf';
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = `${data.main.temp}°C`;
@@ -226,7 +226,7 @@ for(let item of itemList) {
             itemActive(playNum);
             itemList[playNum].classList.add('item-pause');
 
-            palyAudio();
+            playAudio();
         }
     });
 }
@@ -342,15 +342,64 @@ volume.addEventListener('input', function () {
 
 const muteButton = document.querySelector('.volume');
 
-muteButton.addEventListener('click', () => {
-    audio.muted = !audio.muted;
-    if(audio.muted) {
-        muteButton.classList.remove('volume');
-        muteButton.classList.add('volume-off');
-    } else {
-        muteButton.classList.add("volume");
-        muteButton.classList.remove("volume-off");
+// muteButton.addEventListener('click', () => {
+//     audio.muted = !audio.muted;
+//     if(audio.muted) {
+//         muteButton.classList.remove('volume');
+//         muteButton.classList.add('volume-off');
+//     } else {
+//         muteButton.classList.add("volume");
+//         muteButton.classList.remove("volume-off");
+//     }
+// });
+
+///Background API
+async function getLinkToImageUnsplash() {
+    const url =
+        "https://api.unsplash.com/photos/random?query=morning&client_id=s3Tks4rgDK_CnQQ_DsFAQN7Br6aC0eWATJu7D-Rmis0";
+    const res = await fetch(url);
+    const data = await res.json();
+    const img = new Image();
+    img.src = data.urls.regular;
+    img.onload = () => {
+        body.style.backgroundImage = `url(${img.src})`;
+    };
+}
+
+async function getLinkToImageFlickr() {
+    const url =
+        "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=643fc387f6573e07275e7664f38a5148&tags=nature&extras=url_l&format=json&nojsoncallback=1";
+    const res = await fetch(url);
+    const data = await res.json();
+    const img = new Image();
+    img.src = data.photos.photo[1].url_l;
+    img.onload = () => {
+        body.style.backgroundImage = `url(${img.src})`;
+    };
+}
+
+///Settings
+const openMenu = document.querySelector('.open-settings');
+const settingsMenu = document.querySelector('.settings-menu');
+const checkboxButton = document.querySelectorAll('.chekbox-button');
+
+checkboxButton.forEach(e=> {
+
+    if(localStorage[e.id] == 'false'){
+        e.checked = false;
+        document.querySelector(`.${e.name}`).classList.toggle('hidden');
     }
 });
 
-///
+openMenu.onclick = () => {
+    settingsMenu.classList.toggle('show');
+    openMenu.classList.toggle('open-settings-active');
+}
+
+settingsMenu.addEventListener('click', e => {
+
+    if(e.target.name && e.target.name !='tag'){
+        document.querySelector(`.${e.target.name}`).classList.toggle('hidden');
+        localStorage.setItem(e.target.name, document.getElementById(`${e.target.name}`).checked);
+    }
+});
