@@ -516,7 +516,7 @@ body {
 }
 
 .chekbox-button:checked+.setting-button {
-  background-color: coral;
+  background-color: lightblue;
 }
 
 .chekbox-button:checked+.setting-button::before {
@@ -529,15 +529,15 @@ body {
   padding: .2em 1em .2em .5em;
   box-sizing: border-box;
   border-radius: 1em;
-  border: 1px solid coral;
+  border: 1px solid lightblue;
 }
 .setting-select::-ms-expand {
-  color: coral;
+  color: lightblue;
   background: #0089BA;
 }
 
 .setting-select:focus {
-  border-color: coral;
+  border-color: lightblue;
   box-shadow: 0 0 0 3px -moz-mac-focusring;
   color: #222;
   outline: none;
@@ -648,7 +648,7 @@ body {
   font-size: inherit;
   border-radius: 50px;
   border: none;
-  background-color: coral;
+  background-color: lightblue;
   color: #fff;
   cursor: pointer;
 }
@@ -678,7 +678,7 @@ body {
 }
 
 .todo-list::-webkit-scrollbar-thumb{
-  background-color: coral;
+  background-color: lightblue;
   border-radius: 30px;
 }
 
@@ -725,12 +725,12 @@ body {
   margin-right: 8px;
   flex-shrink: 0;
   background-color: #ffffff;
-  border: 2px solid coral;
+  border: 2px solid lightblue;
   border-radius: 4px;
 }
 
 .todo-list-input:checked + span::before {
-  background-color: coral;
+  background-color: lightblue;
   background-repeat: no-repeat;
   background-position: center;
 }
