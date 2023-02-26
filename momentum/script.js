@@ -1,5 +1,3 @@
-
-
 ///Time & date
 const time = document.querySelector('.time');
 const dateInfo = document.querySelector('.date');
@@ -101,7 +99,6 @@ const humidity = document.querySelector('.humidity');
 const weatherErr = document.querySelector('.weather-error');
 let lang = 'en';
 
-
 async function getWeather() {
     try {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=f5d1d74c3abc367654445530b2812b8b&units=metric`;
@@ -123,7 +120,6 @@ function setWeather(e) {
     if(e.type === 'keypress') {
         if(e.which == 13 || e.keyCode == 13) {
             localStorage.setItem('city', e.target.innerText);
-            city.blur();
         }
     } else {
         localStorage.setItem('city', e.target.innerText);
@@ -131,7 +127,6 @@ function setWeather(e) {
 }
 
 city.addEventListener('keypress', setWeather);
-city.addEventListener('blur', setWeather);
 
 city.addEventListener('change', () => {
     getWeather();
@@ -145,7 +140,7 @@ window.addEventListener('beforeunload', setLocalStorageWeather);
 
 function getLocalStorageWeather() {
     if (localStorage.getItem('city')) {
-        city.value =localStorage.getItem('city');
+        city.value = localStorage.getItem('city');
     }
     getWeather();
 }
@@ -172,7 +167,7 @@ changeQuote.onclick = () => {
 
 function getRandomQuote (num) {
     return Math.ceil(Math.random() * num);
-};
+}
 
 ///AudioPlayer
 const player = document.querySelector('.player');
@@ -182,7 +177,7 @@ const playNext = document.querySelector('.play-next');
 const playListAudio = document.querySelector('.play-list');
 const songTitle = document.querySelector('.song-title');
 
-import playList from "./playList.js";
+import playList from './playList.js';
 
 const audio = document.createElement('audio');
 let isPlay = false;
@@ -205,7 +200,7 @@ function showSongTitle() {
 }
 
 //play track on click (track name)
-const itemList = Array.from(document.querySelectorAll('.play-item'))
+const itemList = Array.from(document.querySelectorAll('.play-item'));
 
 for(let item of itemList) {
     item.addEventListener('click', () => {
@@ -241,7 +236,7 @@ function startPlayAudio() {
         pauseAudio();
         itemList[playNum].classList.remove('item-pause');
     }
-};
+}
 
 function itemActive(playNum) {
     itemList[playNum].classList.add('item-active');
@@ -276,13 +271,14 @@ function playNextTrack() {
     if(playNum > (playList.length - 1)){playNum = 0};
     audio.src = playList[playNum].src;
     itemActive(playNum);
+    playAudio();
     play.classList.add('pause');
 };
 
 playNext.onclick = () => {playNextTrack()};
 
 //switch to prev track
-function playprevTrack() {
+function playPrevTrack() {
     itemInactive(playNum);
     playNum--;
     if(playNum < 0){playNum = playList.length - 1};
@@ -291,7 +287,7 @@ function playprevTrack() {
     playAudio();
 };
 
-playPrev.onclick = () => {playprevTrack()};
+playPrev.onclick = () => {playPrevTrack()};
 
 audio.addEventListener('ended', playNextTrack);
 
@@ -313,8 +309,8 @@ function updateProgressValue() {
     }
     progressBar.value = audio.currentTime;
     document.querySelector('.currentTime').innerHTML = (formatTime(Math.floor(audio.currentTime)));
-    if (document.querySelector('.durationTime').innerHTML === "NaN:NaN") {
-        document.querySelector('.durationTime').innerHTML = "0:00";
+    if (document.querySelector('.durationTime').innerHTML === 'NaN:NaN') {
+        document.querySelector('.durationTime').innerHTML = '0:00';
     } else {
         document.querySelector('.durationTime').innerHTML = (formatTime(Math.floor(audio.duration)));
     }
@@ -342,21 +338,21 @@ volume.addEventListener('input', function () {
 
 const muteButton = document.querySelector('.volume');
 
-// muteButton.addEventListener('click', () => {
-//     audio.muted = !audio.muted;
-//     if(audio.muted) {
-//         muteButton.classList.remove('volume');
-//         muteButton.classList.add('volume-off');
-//     } else {
-//         muteButton.classList.add("volume");
-//         muteButton.classList.remove("volume-off");
-//     }
-// });
+muteButton.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    if(audio.muted) {
+        muteButton.classList.remove('volume');
+        muteButton.classList.add('volume-off');
+    } else {
+        muteButton.classList.add('volume');
+        muteButton.classList.remove('volume-off');
+    }
+});
 
 ///Background API
 async function getLinkToImageUnsplash() {
     const url =
-        "https://api.unsplash.com/photos/random?query=morning&client_id=s3Tks4rgDK_CnQQ_DsFAQN7Br6aC0eWATJu7D-Rmis0";
+        'https://api.unsplash.com/photos/random?query=morning&client_id=s3Tks4rgDK_CnQQ_DsFAQN7Br6aC0eWATJu7D-Rmis0';
     const res = await fetch(url);
     const data = await res.json();
     const img = new Image();
@@ -368,7 +364,7 @@ async function getLinkToImageUnsplash() {
 
 async function getLinkToImageFlickr() {
     const url =
-        "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=643fc387f6573e07275e7664f38a5148&tags=nature&extras=url_l&format=json&nojsoncallback=1";
+        'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=643fc387f6573e07275e7664f38a5148&tags=nature&extras=url_l&format=json&nojsoncallback=1';
     const res = await fetch(url);
     const data = await res.json();
     const img = new Image();
@@ -384,7 +380,6 @@ const settingsMenu = document.querySelector('.settings-menu');
 const checkboxButton = document.querySelectorAll('.chekbox-button');
 
 checkboxButton.forEach(e=> {
-
     if(localStorage[e.id] == 'false'){
         e.checked = false;
         document.querySelector(`.${e.name}`).classList.toggle('hidden');
@@ -397,7 +392,6 @@ openMenu.onclick = () => {
 }
 
 settingsMenu.addEventListener('click', e => {
-
     if(e.target.name && e.target.name !='tag'){
         document.querySelector(`.${e.target.name}`).classList.toggle('hidden');
         localStorage.setItem(e.target.name, document.getElementById(`${e.target.name}`).checked);
@@ -405,7 +399,6 @@ settingsMenu.addEventListener('click', e => {
 });
 
 ///ToDo-list
-
 const openTodo = document.querySelector('.open-list');
 const todoMenu = document.querySelector('.todo-menu');
 
@@ -440,7 +433,6 @@ if(localStorage.getItem('todo')){
 }
 
 //tasks out
-
 function tasksOut(value){
     const taskText = value;
     const task = newItemTemplate.cloneNode(true);
