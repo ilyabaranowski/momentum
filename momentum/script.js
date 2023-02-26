@@ -127,7 +127,6 @@ function setWeather(e) {
 }
 
 city.addEventListener('keypress', setWeather);
-city.addEventListener('blur', setWeather);
 
 city.addEventListener('change', () => {
     getWeather();
@@ -168,7 +167,7 @@ changeQuote.onclick = () => {
 
 function getRandomQuote (num) {
     return Math.ceil(Math.random() * num);
-};
+}
 
 ///AudioPlayer
 const player = document.querySelector('.player');
@@ -178,7 +177,7 @@ const playNext = document.querySelector('.play-next');
 const playListAudio = document.querySelector('.play-list');
 const songTitle = document.querySelector('.song-title');
 
-import playList from "./playList.js";
+import playList from './playList.js';
 
 const audio = document.createElement('audio');
 let isPlay = false;
@@ -310,8 +309,8 @@ function updateProgressValue() {
     }
     progressBar.value = audio.currentTime;
     document.querySelector('.currentTime').innerHTML = (formatTime(Math.floor(audio.currentTime)));
-    if (document.querySelector('.durationTime').innerHTML === "NaN:NaN") {
-        document.querySelector('.durationTime').innerHTML = "0:00";
+    if (document.querySelector('.durationTime').innerHTML === 'NaN:NaN') {
+        document.querySelector('.durationTime').innerHTML = '0:00';
     } else {
         document.querySelector('.durationTime').innerHTML = (formatTime(Math.floor(audio.duration)));
     }
@@ -353,7 +352,7 @@ muteButton.addEventListener('click', () => {
 ///Background API
 async function getLinkToImageUnsplash() {
     const url =
-        "https://api.unsplash.com/photos/random?query=morning&client_id=s3Tks4rgDK_CnQQ_DsFAQN7Br6aC0eWATJu7D-Rmis0";
+        'https://api.unsplash.com/photos/random?query=morning&client_id=s3Tks4rgDK_CnQQ_DsFAQN7Br6aC0eWATJu7D-Rmis0';
     const res = await fetch(url);
     const data = await res.json();
     const img = new Image();
@@ -365,7 +364,7 @@ async function getLinkToImageUnsplash() {
 
 async function getLinkToImageFlickr() {
     const url =
-        "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=643fc387f6573e07275e7664f38a5148&tags=nature&extras=url_l&format=json&nojsoncallback=1";
+        'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=643fc387f6573e07275e7664f38a5148&tags=nature&extras=url_l&format=json&nojsoncallback=1';
     const res = await fetch(url);
     const data = await res.json();
     const img = new Image();
