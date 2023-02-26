@@ -95,7 +95,7 @@ slidePrev.addEventListener('click', getSlidePrev);
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
-const weather = document.querySelector('.weather');
+// const weather = document.querySelector('.weather');
 const city = document.querySelector('.city');
 const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
@@ -182,7 +182,7 @@ const playNext = document.querySelector('.play-next');
 const playListAudio = document.querySelector('.play-list');
 const songTitle = document.querySelector('.song-title');
 
-import playList from "./playList";
+import playList from "./playList.js";
 
 const audio = document.createElement('audio');
 let isPlay = false;
@@ -191,6 +191,7 @@ let playNum = 0;
 audio.src = playList[playNum].src;
 showSongTitle();
 
+//create playlist
 playList.forEach(el => {
     const li = document.createElement('li');
     li.classList.add('play-item');
@@ -198,8 +199,158 @@ playList.forEach(el => {
     playListAudio.appendChild(li);
 });
 
+//show current track name in title
 function showSongTitle() {
     songTitle.innerHTML = playList[playNum].title;
 }
 
+//play track on click (track name)
 const itemList = Array.from(document.querySelectorAll('.play-item'))
+
+for(let item of itemList) {
+    item.addEventListener('click', () => {
+        let index = itemList.findIndex(el => el.textContent === item.textContent);
+        if (playNum == index && isPlay) {
+            playAudio();
+            itemList[playNum].classList.remove('item-pause');
+        } else if(playNum == index && !isPlay) {
+            pauseAudio();
+            itemList[playNum].classList.add('item-pause');
+        } else {
+            playNum = index;
+            itemList.forEach(el => {el.classList.remove('item-active');
+            el.classList.remove('item-pause');
+            });
+
+            audio.src = playList[playNum].src;
+            itemActive(playNum);
+            itemList[playNum].classList.add('item-pause');
+
+            palyAudio();
+        }
+    });
+}
+
+//start player with control panel
+function startPlayAudio() {
+    if(!isPlay) {
+        playAudio();
+        itemActive(playNum);
+        itemList[playNum].classList.add('item-pause');
+    } else {
+        pauseAudio();
+        itemList[playNum].classList.remove('item-pause');
+    }
+};
+
+function itemActive(playNum) {
+    itemList[playNum].classList.add('item-active');
+    itemList[playNum].classList.add('item-pause');
+    itemList[playNum].scrollIntoView({block:'center', behavior:'smooth'});
+}
+
+function itemInactive(playNum){
+    itemList[playNum].classList.remove('item-active');
+    itemList[playNum].classList.remove('item-pause');
+}
+
+function playAudio() {
+    showSongTitle();
+    audio.play();
+    isPlay = true;
+    play.classList.add('pause');
+}
+
+function pauseAudio() {
+    audio.pause();
+    isPlay = false;
+    play.classList.remove('pause');
+}
+
+play.addEventListener('click', startPlayAudio);
+
+//switch to the next track
+function playNextTrack() {
+    itemInactive(playNum);
+    playNum++;
+    if(playNum > (playList.length - 1)){playNum = 0};
+    audio.src = playList[playNum].src;
+    itemActive(playNum);
+    play.classList.add('pause');
+};
+
+playNext.onclick = () => {playNextTrack()};
+
+//switch to prev track
+function playprevTrack() {
+    itemInactive(playNum);
+    playNum--;
+    if(playNum < 0){playNum = playList.length - 1};
+    audio.src = playList[playNum].src;
+    itemActive(playNum);
+    playAudio();
+};
+
+playPrev.onclick = () => {playprevTrack()};
+
+audio.addEventListener('ended', playNextTrack);
+
+const progressBar = document.querySelector('#progress-bar');
+
+progressBar.addEventListener('click', changeProgressBar);
+
+function changeProgressBar(e) {
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+    audio.currentTime = (clickX / width) * duration;
+};
+
+
+function updateProgressValue() {
+    if(audio.duration){
+        progressBar.max = audio.duration;
+    }
+    progressBar.value = audio.currentTime;
+    document.querySelector('.currentTime').innerHTML = (formatTime(Math.floor(audio.currentTime)));
+    if (document.querySelector('.durationTime').innerHTML === "NaN:NaN") {
+        document.querySelector('.durationTime').innerHTML = "0:00";
+    } else {
+        document.querySelector('.durationTime').innerHTML = (formatTime(Math.floor(audio.duration)));
+    }
+};
+
+//convert mm to ss
+function formatTime(seconds) {
+    let min = Math.floor((seconds / 60));
+    let sec = Math.floor(seconds - (min * 60));
+    if (sec < 10) {
+        sec = `0${sec}`;
+    };
+    return `${min}:${sec}`;
+};
+
+//update player indicator
+setInterval(updateProgressValue, 500);
+
+//volume settings
+const  volume = document.querySelector('#volumeRange');
+volume.value = audio.volume;
+volume.addEventListener('input', function () {
+    audio.volume = volume.value;
+});
+
+const muteButton = document.querySelector('.volume');
+
+muteButton.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    if(audio.muted) {
+        muteButton.classList.remove('volume');
+        muteButton.classList.add('volume-off');
+    } else {
+        muteButton.classList.add("volume");
+        muteButton.classList.remove("volume-off");
+    }
+});
+
+///
