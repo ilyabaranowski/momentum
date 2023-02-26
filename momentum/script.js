@@ -99,7 +99,6 @@ const humidity = document.querySelector('.humidity');
 const weatherErr = document.querySelector('.weather-error');
 let lang = 'en';
 
-
 async function getWeather() {
     try {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=f5d1d74c3abc367654445530b2812b8b&units=metric`;
@@ -121,7 +120,6 @@ function setWeather(e) {
     if(e.type === 'keypress') {
         if(e.which == 13 || e.keyCode == 13) {
             localStorage.setItem('city', e.target.innerText);
-            city.blur();
         }
     } else {
         localStorage.setItem('city', e.target.innerText);
@@ -143,7 +141,7 @@ window.addEventListener('beforeunload', setLocalStorageWeather);
 
 function getLocalStorageWeather() {
     if (localStorage.getItem('city')) {
-        city.value =localStorage.getItem('city');
+        city.value = localStorage.getItem('city');
     }
     getWeather();
 }
