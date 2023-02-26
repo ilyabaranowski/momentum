@@ -1,5 +1,3 @@
-
-
 ///Time & date
 const time = document.querySelector('.time');
 const dateInfo = document.querySelector('.date');
@@ -205,7 +203,7 @@ function showSongTitle() {
 }
 
 //play track on click (track name)
-const itemList = Array.from(document.querySelectorAll('.play-item'))
+const itemList = Array.from(document.querySelectorAll('.play-item'));
 
 for(let item of itemList) {
     item.addEventListener('click', () => {
@@ -241,7 +239,7 @@ function startPlayAudio() {
         pauseAudio();
         itemList[playNum].classList.remove('item-pause');
     }
-};
+}
 
 function itemActive(playNum) {
     itemList[playNum].classList.add('item-active');
@@ -276,13 +274,14 @@ function playNextTrack() {
     if(playNum > (playList.length - 1)){playNum = 0};
     audio.src = playList[playNum].src;
     itemActive(playNum);
+    playAudio();
     play.classList.add('pause');
 };
 
 playNext.onclick = () => {playNextTrack()};
 
 //switch to prev track
-function playprevTrack() {
+function playPrevTrack() {
     itemInactive(playNum);
     playNum--;
     if(playNum < 0){playNum = playList.length - 1};
@@ -291,7 +290,7 @@ function playprevTrack() {
     playAudio();
 };
 
-playPrev.onclick = () => {playprevTrack()};
+playPrev.onclick = () => {playPrevTrack()};
 
 audio.addEventListener('ended', playNextTrack);
 
@@ -342,16 +341,16 @@ volume.addEventListener('input', function () {
 
 const muteButton = document.querySelector('.volume');
 
-// muteButton.addEventListener('click', () => {
-//     audio.muted = !audio.muted;
-//     if(audio.muted) {
-//         muteButton.classList.remove('volume');
-//         muteButton.classList.add('volume-off');
-//     } else {
-//         muteButton.classList.add("volume");
-//         muteButton.classList.remove("volume-off");
-//     }
-// });
+muteButton.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    if(audio.muted) {
+        muteButton.classList.remove('volume');
+        muteButton.classList.add('volume-off');
+    } else {
+        muteButton.classList.add('volume');
+        muteButton.classList.remove('volume-off');
+    }
+});
 
 ///Background API
 async function getLinkToImageUnsplash() {
@@ -384,7 +383,6 @@ const settingsMenu = document.querySelector('.settings-menu');
 const checkboxButton = document.querySelectorAll('.chekbox-button');
 
 checkboxButton.forEach(e=> {
-
     if(localStorage[e.id] == 'false'){
         e.checked = false;
         document.querySelector(`.${e.name}`).classList.toggle('hidden');
@@ -397,7 +395,6 @@ openMenu.onclick = () => {
 }
 
 settingsMenu.addEventListener('click', e => {
-
     if(e.target.name && e.target.name !='tag'){
         document.querySelector(`.${e.target.name}`).classList.toggle('hidden');
         localStorage.setItem(e.target.name, document.getElementById(`${e.target.name}`).checked);
@@ -405,7 +402,6 @@ settingsMenu.addEventListener('click', e => {
 });
 
 ///ToDo-list
-
 const openTodo = document.querySelector('.open-list');
 const todoMenu = document.querySelector('.todo-menu');
 
@@ -440,7 +436,6 @@ if(localStorage.getItem('todo')){
 }
 
 //tasks out
-
 function tasksOut(value){
     const taskText = value;
     const task = newItemTemplate.cloneNode(true);

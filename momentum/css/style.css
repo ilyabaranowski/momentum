@@ -117,7 +117,7 @@ body {
 
 .play-item::before {
   content: "";
-  background: url("../assets/svg/play.svg") no-repeat 50% 50%;
+  background: url("../assets/svg/play.svg") no-repeat 70% 50%;
   position: absolute;
   left: 0;
   top: 7px;
