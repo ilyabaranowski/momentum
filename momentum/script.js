@@ -268,12 +268,12 @@ play.addEventListener('click', startPlayAudio);
 function playNextTrack() {
     itemInactive(playNum);
     playNum++;
-    if(playNum > (playList.length - 1)){playNum = 0};
+    if(playNum > (playList.length - 1)){playNum = 0}
     audio.src = playList[playNum].src;
     itemActive(playNum);
     playAudio();
     play.classList.add('pause');
-};
+}
 
 playNext.onclick = () => {playNextTrack()};
 
@@ -281,11 +281,11 @@ playNext.onclick = () => {playNextTrack()};
 function playPrevTrack() {
     itemInactive(playNum);
     playNum--;
-    if(playNum < 0){playNum = playList.length - 1};
+    if(playNum < 0){playNum = playList.length - 1}
     audio.src = playList[playNum].src;
     itemActive(playNum);
     playAudio();
-};
+}
 
 playPrev.onclick = () => {playPrevTrack()};
 
@@ -300,7 +300,7 @@ function changeProgressBar(e) {
     const clickX = e.offsetX;
     const duration = audio.duration;
     audio.currentTime = (clickX / width) * duration;
-};
+}
 
 
 function updateProgressValue() {
@@ -314,7 +314,7 @@ function updateProgressValue() {
     } else {
         document.querySelector('.durationTime').innerHTML = (formatTime(Math.floor(audio.duration)));
     }
-};
+}
 
 //convert mm to ss
 function formatTime(seconds) {
@@ -322,9 +322,9 @@ function formatTime(seconds) {
     let sec = Math.floor(seconds - (min * 60));
     if (sec < 10) {
         sec = `0${sec}`;
-    };
+    }
     return `${min}:${sec}`;
-};
+}
 
 //update player indicator
 setInterval(updateProgressValue, 500);
@@ -453,7 +453,7 @@ function addCheckHandler (item) {
         item.remove();
         toggleEmptyListMessage();
     });
-};
+}
 
 function toggleEmptyListMessage () {
     if (items.length === 0) {
@@ -465,7 +465,7 @@ function toggleEmptyListMessage () {
         emptyList.classList.add('hidden');
         newItemForm.classList.add('show');
     }
-};
+}
 
 newItemForm.addEventListener('submit', function (evt) {
     evt.preventDefault();
